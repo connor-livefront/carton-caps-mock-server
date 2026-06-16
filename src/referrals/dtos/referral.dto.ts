@@ -30,7 +30,7 @@ export class ReferralDto {
   static fromEntity(referral: Referral): ReferralDto {
     return {
       id: referral.id,
-      displayName: `${referral.refereeFirstName} ${referral.refereeLastName.charAt[0]}.`,
+      displayName: `${referral.refereeFirstName} ${referral.refereeLastName[0]}.`,
       status: referral.status,
       createdAt: referral.createdAt,
     }
