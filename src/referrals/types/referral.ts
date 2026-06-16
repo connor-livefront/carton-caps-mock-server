@@ -1,8 +1,8 @@
 import { ReferralStatus } from "./referral-status"
 
 export interface Referral {
-  id: number
-  referrerId: number
+  id: string
+  referrerId: string
   refereeFirstName: string
   refereeLastName: string
   status: ReferralStatus
