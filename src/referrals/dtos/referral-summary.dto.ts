@@ -1,10 +1,10 @@
 import { IsArray, IsString } from "class-validator"
-import { Referral } from "../types/referral"
+import { ReferralDto } from "./referral.dto"
 
 export class ReferralSummaryDto {
   constructor(
     referralCode: string,
-    referrals: Referral[],
+    referrals: ReferralDto[],
   ) {
     this.referralCode = referralCode
     this.referrals = referrals
@@ -14,5 +14,5 @@ export class ReferralSummaryDto {
   referralCode: string
 
   @IsArray()
-  referrals: Referral[]
+  referrals: ReferralDto[]
 }
