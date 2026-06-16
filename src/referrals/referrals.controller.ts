@@ -1,4 +1,4 @@
-import { Controller, Post, Param, NotFoundException } from '@nestjs/common'
+import { Controller, Get, Post, Param, NotFoundException } from '@nestjs/common'
 import { ReferralsService } from './referrals.service'
 import { users } from '@/store/mock-data'
 import { 
@@ -14,6 +14,22 @@ export class ReferralsController {
   constructor(
     private readonly referralsService: ReferralsService
   ) {}
+
+  @Get(':userId/me')
+  @ApiUnauthorizedResponse({
+    description: 'The request could not be authenticated.',
+    type: Http401Error,
+  })
+  getReferralSummary(@Param('userId') userId: string) {
+    const user = users.find(
+      (user) => user.id === userId
+    )
+    if (!user) {
+      throw new NotFoundException()
+    }
+
+    return this.referralsService.getReferralSummary(userId)
+  }
 
   @Post(':userId/link')
   @ApiOperation({

@@ -1,9 +1,23 @@
-import { Injectable } from '@nestjs/common';
-import { users } from '@/store/mock-data';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { referrals, users } from '@/store/mock-data';
 import { ReferralLinkDto } from './dtos/referral-link.dto';
+import { ReferralSummaryDto } from './dtos/referral-summary.dto';
 
 @Injectable()
 export class ReferralsService {
+  getReferralSummary(userId: string): ReferralSummaryDto {
+    const user = users.find((user) => user.id === userId)
+    if (!user) {
+      throw new NotFoundException(`User ${userId} not found`)
+    }
+    const referralList = referrals.filter((referral) => referral.referrerId === user.id)
+
+    return {
+      referralCode: user.referralCode,
+      referrals: referralList
+    }
+  }
+
   createReferralLink(userId: string): ReferralLinkDto {
     const user = users.find((user) => user.id === userId)
     const referralCode = user?.referralCode
