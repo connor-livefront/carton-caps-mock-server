@@ -1,1 +1,4 @@
-export type ReferralStatus = 'pending' | 'complete'
+export enum ReferralStatus { 
+  Complete = 'complete',
+  Pending = 'pending'
+}

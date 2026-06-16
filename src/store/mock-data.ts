@@ -1,5 +1,6 @@
 import { User } from "@/referrals/types/user"
 import { Referral } from "@/referrals/types/referral"
+import { ReferralStatus } from "@/referrals/types/referral-status"
 
 export const users: User[] = [
   {
@@ -24,7 +25,7 @@ export const referrals: Referral[] = [
     referrerId: '1',
     refereeFirstName: 'Jonny',
     refereeLastName: 'Smith',
-    status: 'complete',
+    status: ReferralStatus.Complete,
     createdAt: '2024-08-10T14:22:00Z',
   },
   {
@@ -32,7 +33,7 @@ export const referrals: Referral[] = [
     referrerId: '1',
     refereeFirstName: 'Archer',
     refereeLastName: 'Kim',
-    status: 'complete',
+    status: ReferralStatus.Complete,
     createdAt: '2024-08-06T09:45:00Z',
   },
   {
@@ -40,7 +41,7 @@ export const referrals: Referral[] = [
     referrerId: '1',
     refereeFirstName: 'Helen',
     refereeLastName: 'Yang',
-    status: 'complete',
+    status: ReferralStatus.Complete,
     createdAt: '2024-07-28T11:30:00Z',
   },
   {
@@ -48,7 +49,7 @@ export const referrals: Referral[] = [
     referrerId: '2',
     refereeFirstName: 'Chris',
     refereeLastName: 'Angelotti',
-    status: 'complete',
+    status: ReferralStatus.Complete,
     createdAt: '2024-08-01T16:10:00Z',
   },
   {
@@ -56,7 +57,7 @@ export const referrals: Referral[] = [
     referrerId: '2',
     refereeFirstName: 'Marcus',
     refereeLastName: 'Webb',
-    status: 'pending',
+    status: ReferralStatus.Pending,
     createdAt: '2024-08-12T08:55:00Z',
   },
 ]
